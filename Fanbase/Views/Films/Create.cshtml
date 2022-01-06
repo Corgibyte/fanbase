@@ -1,0 +1,23 @@
+@model Fanbase.Models.Film
+
+<h4>Add a new film</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @Html.LabelFor(model => model.DateOfRelease)
+  @Html.TextBoxFor(model => model.DateOfRelease, "{0:d MMM yyyy}", new {@type="date"})
+
+  @Html.LabelFor(model => model.Director)
+  @Html.TextBoxFor(model => model.Director)
+  
+  @Html.LabelFor(model => model.IsOriginalWork)
+  @Html.CheckBox("IsOriginalWork")
+  
+  @Html.Label("Select country")
+  @Html.DropDownList("CountryId")
+
+  <button class="btn" type="submit">Add new film</button>
+}

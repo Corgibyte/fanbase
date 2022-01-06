@@ -1,0 +1,26 @@
+@model Fanbase.Models.Actor
+
+<h4>Add a new actor</h4>
+
+@using (Html.BeginForm())
+{
+
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+
+  @Html.LabelFor(model => model.DateOfBirth)
+  @Html.TextBoxFor(model => model.DateOfBirth, "{0:d MMM yyyy}", new {@type="date"})
+
+  @Html.Label("Country of Origin")
+  @Html.DropDownList("CountryId")
+
+  @Html.LabelFor(model => model.Oscar)
+  @Html.CheckBoxFor(model => model.Oscar)
+
+  @Html.LabelFor(model => model.IsMcu)
+  @Html.CheckBox("IsMcu")
+
+  <input type="submit" value="Add new actor" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

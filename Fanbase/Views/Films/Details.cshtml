@@ -1,0 +1,25 @@
+@* @model Fanbase.Models.Film
+
+<h2>Film Details</h2>
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.DateOfRelease): @Html.DisplayFor(model => model.DateOfRelease)</h3>
+<h3>@Html.DisplayNameFor(model => model.Director): @Html.DisplayFor(model => model.Director)</h3>
+<h3>@Html.DisplayNameFor(model => model.IsOriginalWork): @Html.DisplayFor(model => model.IsOriginalWork)</h3>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>This film has no actors</p>
+}
+else
+{
+  <h3>Film Actors:</h3>
+  <ul>
+  @foreach (var join in Model.JoinEntities)
+    {
+      <li>@join.Student.Name</li>
+    }
+  </ul>
+}
+
+<p class="bottom-link">@Html.ActionLink("Edit course", "Edit", new { id = Model.CourseId })</p>
+<p class="bottom-link">@Html.ActionLink("Delete course", "Delete", new { id = Model.CourseId })</p> *@

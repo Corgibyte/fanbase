@@ -38,7 +38,7 @@ namespace Fanbase.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Actor actor)
+    public ActionResult Create(Actor actor, int CountryId)
     {
       _db.Actors.Add(actor);
       _db.SaveChanges();

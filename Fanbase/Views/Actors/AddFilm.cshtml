@@ -1,0 +1,19 @@
+@model Fanbase.Models.Actor
+
+<h2>Add a film</h2>
+
+<h4>Add a film for this actor: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ActorId)
+
+  @Html.Label("select Film")
+  @Html.DropDownList("FilmId")
+
+  <input type="submit" value="Save">
+}
+
+<p>Don't see the film you were looking for? @Html.ActionLink("Add film here", "Create", "Films")</p>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

@@ -1,0 +1,12 @@
+@using Fanbase.Models;
+@model List<Fanbase.Models.Film>;
+
+  <h1>Films</h1>
+  <ul>
+    @foreach (Film film in Model)
+    {
+      <li>@Html.ActionLink($"{film.Name}", "Details", new { id = film.FilmId })</li>
+    }
+  </ul>
+
+  <p>@Html.ActionLink("Add new film", "Create")</p>
