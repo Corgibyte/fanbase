@@ -4,20 +4,20 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
+  <p>@Html.LabelFor(model => model.Name, new{ required = "required"})
+  @Html.TextBoxFor(model => model.Name, new{ required = "required"})</p>
 
-  @Html.LabelFor(model => model.DateOfRelease)
-  @Html.TextBoxFor(model => model.DateOfRelease, "{0:d MMM yyyy}", new {@type="date"})
+  <p>@Html.LabelFor(model => model.DateOfRelease)
+  @Html.TextBoxFor(model => model.DateOfRelease, "{0:d MMM yyyy}", new {@type="date"})</p>
 
-  @Html.LabelFor(model => model.Director)
-  @Html.TextBoxFor(model => model.Director)
-  
-  @Html.LabelFor(model => model.IsOriginalWork)
-  @Html.CheckBox("IsOriginalWork")
-  
-  @Html.Label("Select country")
-  @Html.DropDownList("CountryId")
+  <p>@Html.LabelFor(model => model.Director)
+  @Html.TextBoxFor(model => model.Director)</p>
 
-  <button class="btn" type="submit">Add new film</button>
+  <p>@Html.LabelFor(model => model.IsOriginalWork)
+  @Html.CheckBox("IsOriginalWork")</p>
+
+  <p>@Html.Label("Select country")
+  @Html.DropDownList("CountryId")</p>
+
+  <p><button class="btn" type="submit">Add new film</button></p>
 }

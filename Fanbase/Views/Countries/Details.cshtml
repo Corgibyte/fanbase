@@ -1,0 +1,38 @@
+@using Fanbase.Models;
+@model Fanbase.Models.Country
+
+<h2>Country Details</h2>
+<h3>Country Name: @Html.DisplayFor(model => model.Name)</h3>
+
+@if (@Model.Films.Count ==0)
+{
+  <p>This Country has no current films</p>
+}
+else
+{
+  <h4>Films:</h4>
+  <ul>
+    @foreach (Film film in Model.Films)
+    {
+      <li>@Html.ActionLink($"{@film.Name}","Details", "Films", new{ id = film.FilmId})</li>
+    }
+  </ul>
+}
+
+@if (@Model.Actors.Count ==0)
+{
+  <p>This Country has no current actors</p>
+}
+else
+{
+  <h4>Actors:</h4>
+  <ul>
+    @foreach (Actor actor in Model.Actors)
+    {
+      <li>@Html.ActionLink($"{@actor.Name}","Details", "Actors", new{ id = actor.ActorId})</li>
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Edit country", "Edit", new { id = Model.CountryId })</p>
+<p>@Html.ActionLink("Delete country", "Delete", new {id = Model.CountryId })</p>

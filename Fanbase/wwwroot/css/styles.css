@@ -1,0 +1,14 @@
+#nav-ul {
+  display: flex;
+  padding: 0.5rem;
+}
+
+.nav-li-start {
+  margin-left: auto;
+  list-style: none;
+}
+
+.nav-li {
+  list-style: none;
+  padding-left:1rem;
+}

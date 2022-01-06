@@ -3,49 +3,34 @@
 <h2>Actor Details</h2>
 <h3>Actor Name: @Html.DisplayFor(model => model.Name)</h3>
 <h4>Date of Birth: @Html.DisplayFor(model => model.DateOfBirth)</h4>
-<h4>Country of Origin: @Html.DisplayFor(model => model.Country)</h4>
+<h4>Country of Origin: @Html.DisplayFor(model => model.Country.Name)</h4>
 <h4>Oscar Winner:  @if(@Model.Oscar==true){
-                        <p>True</p>
+                        <span>Yes</span>
                       }else {
-                        <p>False</p>
+                        <span>Not yet</span>
                       }     
 </h4>
-@* @if (@Model.JoinEntities.Count == 0)
+@if (@Model.JoinEntities.Count == 0)
 {
-  <p>This student is not enrolled in any courses</p>
+  <p>You have not entered any films for this actor yet.</p>
 }
 else
 {
-  <p id="student-details-filter">@Html.ActionLink("See Completed courses only", "CompletedDetails", new { id = Model.StudentId })</p>
-  <h4>Courses:</h4>
-  <ul id="student-details-ul">
-  @foreach (var join in Model.JoinEntities)
+  <h4>Filmography:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Film.Name</li>
+    @using (Html.BeginForm("DeleteFilm", "Actor"))
     {
-      <li class="student-details-li">
-        @join.Course.Name
-        @if (join.Complete)
-        {
-          <p id="completed">Completed</p>
-        }
-        else
-        {
-          <p id="incomplete">Incomplete</p>
-        }
-        @using (Html.BeginForm("DeleteCourse", "Students"))
-        {
-          @Html.Hidden("joinId", @join.CourseStudentId)
-          <input type="submit" value="Delete" />
-        }
-        @using (Html.BeginForm("SwitchCompleted", "Students"))
-        {
-          @Html.Hidden("joinId", @join.CourseStudentId)
-          <input type="submit" value="Toggle Completed">
-        }
-      </li>
+      @Html.Hidden("joinId", @join.ActorFilmId)
+      <input type="submit" value="Delete"/>
     }
+  }
   </ul>
 }
 
-<p class="bottom-link">@Html.ActionLink("Add Course", "AddCourse", new { id = Model.StudentId })</p>
-<p class="bottom-link">@Html.ActionLink("Edit student", "Edit", new { id = Model.StudentId })</p>
-<p class="bottom-link">@Html.ActionLink("Delete student", "Delete", new { id = Model.StudentId })</p> *@
+<p>@Html.ActionLink("Add Film", "AddFilm", new { id = Model.ActorId })</p>
+<p>@Html.ActionLink("Edit Actor", "Edit", new { id = Model.ActorId })</p>
+<p>@Html.ActionLink("Delete Actor", "Delete", new { id = Model.ActorId })</p>
+<p>@Html.ActionLink("Return to Home", "Index")</p>

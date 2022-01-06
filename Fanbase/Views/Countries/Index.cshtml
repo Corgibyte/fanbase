@@ -1,0 +1,13 @@
+@using Fanbase.Models;
+@model List<Fanbase.Models.Country>
+
+<h1>Countries</h1>
+<ul>
+  @foreach (Country country in Model)
+  {
+    <li>@Html.ActionLink($"{country.Name}", "Details", new { id = country.CountryId })</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Add new country", "Create")</p>
+<p>@Html.ActionLink("Return to Home", "Index", "Home")</p>

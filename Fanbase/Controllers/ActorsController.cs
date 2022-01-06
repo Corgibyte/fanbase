@@ -52,6 +52,14 @@ namespace Fanbase.Controllers
       return View(thisActor);
     }
 
+    [HttpPost]
+    public ActionResult Edit(Actor actor)
+    {
+      _db.Entry(actor).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = actor.ActorId });
+    }
+
     public ActionResult AddFilm(int id)
     {
       var thisActor = _db.Actors.FirstOrDefault(actor => actor.ActorId == id);

@@ -1,0 +1,11 @@
+@model Fanbase.Models.Country
+
+<h4>Add a new country</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name, new{ required = "required" })
+  @Html.TextBoxFor(model => model.Name, new{ required = "required" })
+
+  <input type="submit" value="Add new country" class="btn btn-default" />
+}

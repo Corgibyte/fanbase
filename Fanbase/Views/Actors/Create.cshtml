@@ -5,11 +5,11 @@
 @using (Html.BeginForm())
 {
 
-  @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
+  @Html.LabelFor(model => model.Name, new{ required = "required" })
+  @Html.TextBoxFor(model => model.Name, new{ required = "required" })
 
   @Html.LabelFor(model => model.DateOfBirth)
-  @Html.TextBoxFor(model => model.DateOfBirth, "{0:d MMM yyyy}", new {@type="date"})
+  @Html.TextBoxFor(model => model.DateOfBirth, "{0:yyyy-MM-dd}")
 
   @Html.Label("Country of Origin")
   @Html.DropDownList("CountryId")

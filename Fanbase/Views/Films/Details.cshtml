@@ -1,4 +1,4 @@
-@* @model Fanbase.Models.Film
+@model Fanbase.Models.Film
 
 <h2>Film Details</h2>
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
@@ -16,10 +16,12 @@ else
   <ul>
   @foreach (var join in Model.JoinEntities)
     {
-      <li>@join.Student.Name</li>
+      <li>@join.Actor.Name</li>
     }
   </ul>
 }
 
-<p class="bottom-link">@Html.ActionLink("Edit course", "Edit", new { id = Model.CourseId })</p>
-<p class="bottom-link">@Html.ActionLink("Delete course", "Delete", new { id = Model.CourseId })</p> *@
+<p class="bottom-link">@Html.ActionLink("Edit film", "Edit", new { id = Model.FilmId })</p>
+<p class="bottom-link">@Html.ActionLink("Delete film", "Delete", new { id = Model.FilmId })</p>
+<p class="bottom-link">@Html.ActionLink("Return to Film List", "Index", "Films")</p>
+<p class="bottom-link">@Html.ActionLink("Return to Home", "Index", "Home")</p>

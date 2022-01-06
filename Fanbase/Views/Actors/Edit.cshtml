@@ -4,16 +4,16 @@
 
 @using (Html.BeginForm())
 {
-@Html.HiddenFor(model => model.ActorId)
+    @Html.HiddenFor(model => model.ActorId)
 
     @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
 
     @Html.LabelFor(model => model.DateOfBirth)
-    @Html.TextBoxFor(model => model.DateOfBirth, "{0:d MMM yyyy}", new {@type="date"})
+    @Html.TextBoxFor(model => model.DateOfBirth, "{0:yyyy-MM-dd}")
 
-     @Html.Label("Country of Origin")
-     @Html.DropDownList("CountryId")
+    @Html.Label("Country of Origin")
+    @Html.DropDownList("CountryId")
     
     @Html.LabelFor(model => model.Oscar)
     @Html.CheckBoxFor(model => model.Oscar)
@@ -21,8 +21,8 @@
     @Html.LabelFor(model => model.IsMcu)
     @Html.CheckBox("IsMcu")
 
-    @Html.Label("Select Film")
-    @Html.DropDownList("FilmId")
+    @* @Html.Label("Select Film")
+    @Html.DropDownList("FilmId") *@
 
     <input type="submit" value="Save" />
 }

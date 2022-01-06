@@ -1,0 +1,12 @@
+@model Fanbase.Models.Country
+
+<h4>Edit Country</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.CountryId)
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  <input type="submit" value="Edit country" class="btn btn-default" />
+}
